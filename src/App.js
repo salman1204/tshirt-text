@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import shirt from "./shirt.png";
 
 function App() {
+  let [enteredName, setEnteredName] = useState("");
+
+  const handleClick = (event) => {
+    enteredName = prompt('Input Text');
+    setEnteredName(enteredName)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img src={shirt} alt="" style={{width:"500px", height:"500px"}}/> <br/> 
+      <p>{enteredName}</p>
+      <input type="button" value="Input Text" onClick={handleClick}/>
     </div>
   );
 }
